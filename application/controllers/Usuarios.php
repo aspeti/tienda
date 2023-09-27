@@ -160,6 +160,123 @@ class Usuarios extends CI_Controller {
 		echo "usuarios"; //return url to redirect
 	}
 
+
+
+	public function viewprofile($id){	
+
+		$data = array(
+
+			'perfil' => $this ->Usuario_model->getUsuarioById($id),
+		);
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('perfil/edit', $data);
+		$this->load->view('layouts/footer');
+	}
+
+
+	public function password($id){	
+
+		$data = array(
+
+			'perfil' => $this ->Usuario_model->getUsuarioById($id),
+		);
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('perfil/editpass', $data);
+		$this->load->view('layouts/footer');
+	}
+
+
+	public function updateprofile(){
+
+		$id = $this->input->post('idusuario');
+		$nombre = $this->input->post('nombre');
+		$apellido = $this->input->post('apellido');
+		$ci = $this->input->post('ci');
+		$direccion = $this->input->post('direccion');
+		$celular = $this->input->post('celular');
+		$email = $this->input->post('email');
+
+
+		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("apellido", "Apellido", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("ci", "Ci", "required|min_length[5]|max_length[9]");
+		$this->form_validation->set_rules("celular", "Celular", "trim|numeric|required|min_length[8]|max_length[8]");
+		$this->form_validation->set_rules("direccion", "Direccion", "required|min_length[3]|max_length[30]");
+		$this->form_validation->set_rules("email", "Email", "required|valid_email|min_length[5]|max_length[20]");
+  
+		if($this->form_validation->run()){
+
+			$data = array(
+				'nombre' => $nombre,
+				'apellido' => $apellido,
+				'ci' => $ci,
+				'direccion' => $direccion,
+				'celular' => $celular,
+				'email' => $email,
+			
+			);
+	
+			if($this->Usuario_model->update($id, $data)){
+				redirect(base_url()."usuarios/viewprofile/".$id);
+			}else{
+				$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+				redirect(base_url()."usuarios/viewprofile/".$id);
+			}	
+		}else{
+			$this->viewprofile($id);
+		}
+			
+	}
+	public function updatepassword(){
+
+		$id = $this->input->post('idusuario');
+		//$password = $this->input->post('password');
+		$newpassword = $this->input->post('newpassword');
+		$confirmpassword = $this->input->post('confirmpassword');
+
+
+		//$this->form_validation->set_rules("password", "Password", "required|min_length[5]|max_length[20]"); //callback_checkpassword
+		$this->form_validation->set_rules("newpassword", "New Password", "required|min_length[5]|max_length[20]");
+		$this->form_validation->set_rules("confirmpassword", "Confirm Password", "required|min_length[5]|max_length[9]|matches[newpassword]");
+		
+
+
+		if($this->form_validation->run()){
+
+			$data = array(
+				'password' => md5($newpassword),
+			);
+	
+			if($this->Usuario_model->update($id, $data)){
+				redirect(base_url()."usuarios/password/".$id);
+			}else{
+				$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+				redirect(base_url()."usuarios/password/".$id);
+			}	
+
+		
+		}else{
+			$this->password($id);
+		}
+        
+			
+	}
+
+
+	public function checkpassword($password)
+    {
+        $this->db->where("password", md5($password));
+        $resultados = $this->db->get("usuario");
+        if($resultados->num_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    } 
 	
 
 
