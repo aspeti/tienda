@@ -41,6 +41,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th>Stock</th>
                     <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
@@ -54,6 +55,7 @@
                                   <td><?php echo $producto->nombre;?></td>
                                   <td><?php echo $producto->descripcion;?></td>
                                   <td><?php echo $producto->precio;?></td>
+                                  <td><?php echo $producto->stock;?></td>
                                   <td><?php echo $producto->categoria;?></td>
                                   <td>
                                       <div class="btn-group">
@@ -76,6 +78,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th>Stock</th>
                     <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>

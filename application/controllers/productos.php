@@ -37,12 +37,14 @@ class Productos extends CI_Controller {
 		$nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
-        $id_categoria = $this->input->post("idCategoria");
+		$stock = $this->input->post("stock");
+        $id_categoria = $this->input->post("idCategoria");		
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
 		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]|is_unique[producto.nombre]");
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
+		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|min_length[4]|max_length[4]");
         
 		if($this->form_validation->run()){	
 
@@ -50,6 +52,7 @@ class Productos extends CI_Controller {
 					'nombre' => $nombre,
 					'descripcion'=> $descripcion,		
 					'precio'=> $precio,
+					'stock'=> $stock,
 					'eliminado' => "0",
 					'id_categoria' => $id_categoria,
 					'fecha_creacion' => date('Y-m-d H:i:s'),
@@ -91,6 +94,7 @@ class Productos extends CI_Controller {
         $nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
+		$stock = $this->input->post("stock");
         $id_categoria = $this->input->post("idCategoria");
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
@@ -106,6 +110,7 @@ class Productos extends CI_Controller {
 
 		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]".$unique);
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
+		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|min_length[4]|max_length[4]");
         
 		if($this->form_validation->run()){
 
@@ -113,6 +118,7 @@ class Productos extends CI_Controller {
 					'nombre' => $nombre,
 					'descripcion' => $descripcion,
 					'precio' => $precio,
+					'stock'=> $stock,
 					'id_categoria' => $id_categoria,
 					'fecha_actualizacion' => date('Y-m-d H:i:s')			
 				);
