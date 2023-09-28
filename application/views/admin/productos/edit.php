@@ -65,7 +65,15 @@
                     value="<?php echo !empty(form_error("precio")) ? set_value("precio") : $producto->precio; ?>">
                     <?php echo form_error("precio","<span class='help-block'>","</span>")?>
                   </div>
+
                   <div class="form-group">
+                    <label for="stock">Stock *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("stock")) ? 'is-invalid':'';?>" placeholder="Agregue cantidad en Stock" id="stock" name="stock" 
+                    value="<?php echo !empty(form_error("stock")) ? set_value("stock") : $producto->stock; ?>">
+                    <?php echo form_error("stock","<span class='help-block'>","</span>")?>
+                  </div> 
+
+                  <div class="form-group">                    
                     <label for="idCategoria">Categoria</label>
                     <select type="text" class="form-control" placeholder="categoria" name="idCategoria">                      
                       <?php foreach($categorias as $categoria):?>

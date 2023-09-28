@@ -63,6 +63,12 @@
                           <?php echo form_error("precio","<span class='help-block'>","</span>")?> 
                   </div>  
                   <div class="form-group">
+                    <label for="stock">Stock *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("stock")) ? 'is-invalid':' ';?>" placeholder="Agregue cantidad en stock" id="stock" name="stock"
+                          value="<?php echo set_value("stock");?>">
+                          <?php echo form_error("stock","<span class='help-block'>","</span>")?> 
+                  </div>  
+                  <div class="form-group">
                     <label for="idCategoria">Categoria</label>
                     <select type="text" class="form-control" placeholder="categoria" name="idCategoria">
                       <?php foreach($categorias as $categoria):?>

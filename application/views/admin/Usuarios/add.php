@@ -80,12 +80,12 @@
                         placeholder="Correo electronico" name="email" id="email" value = "<?php echo set_value("email");?>">
                         <?php echo form_error("email","<span class='help-block'>","</span>")?>
                   </div> 
-                  <div class="form-group">
+                  <!--div class="form-group">
                     <label for="password">Password *</label>
                     <input type="password" class="form-control <?php echo !empty(form_error("password")) ? 'is-invalid':' ';?>" 
                         placeholder="Constraseña" name="password" id="password" value = "<?php echo set_value("password");?>">
                         <?php echo form_error("password","<span class='help-block'>","</span>")?>
-                  </div> 
+                  </!div--> 
 
                   <div class="form-group">
                         <label for="rol">Rol</label>

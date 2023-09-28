@@ -17,15 +17,16 @@
 
 
 </head>
-<body class="hold-transition login-page" style="background-color:white;">
+<body class="hold-transition login-page" 
+style="background-image: url('<?php echo base_url();?>assets/img/fondo.jpg'); background-repeat: no-repeat ; background-position: center;background-size: cover">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="#"><b>Tienda Deportiva</a>
+  <div class="login-logo card">
+    <a href="#"><b>Multitud Deportiva</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Ingrese sus datos</p>
+      <p class="login-box-msg">Ingresa tus datos</p>
 
       <?php if($this->session->flashdata("error")):?>
            <div class="alert alert-danger">

@@ -2,10 +2,10 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!--strong>Copyright &copy; 2023 <a href="#">Boris</a>.</!strong>
-     Todos lo derechos reservados
-    <div-- class="float-right d-none d-sm-inline-block">
+     Todos lo derechos reservados  -->
+    <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0
-    </div-->
+    </div>
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -122,6 +122,22 @@
         }
     });
   });
+//-- -------------------------- profile---------------------------------------------------->
+
+  function deshabilitarCampos(campos) {
+    campos.forEach(function(idCampo) {
+      document.getElementById(idCampo).setAttribute("disabled", "true");
+    });
+  }
+  function habilitarCampos(campos){
+    campos.forEach(function(idCampo) {
+      document.getElementById(idCampo).removeAttribute("disabled");
+    });
+  
+  }
+
+
+
 </script>
 </body>
 </html>

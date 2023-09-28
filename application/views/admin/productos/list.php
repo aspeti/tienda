@@ -25,7 +25,7 @@
 
             <div class="card">
               <div class="card-header">                
-                <div class ="col-md-1" >
+                <div class ="col-md-2" >
                   <a href="<?php echo base_url();?>productos/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
                     <span class="fa fa-plus"></span>  Agregar
                   </a>
@@ -41,6 +41,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th>Stock</th>
                     <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
@@ -54,6 +55,7 @@
                                   <td><?php echo $producto->nombre;?></td>
                                   <td><?php echo $producto->descripcion;?></td>
                                   <td><?php echo $producto->precio;?></td>
+                                  <td><?php echo $producto->stock;?></td>
                                   <td><?php echo $producto->categoria;?></td>
                                   <td>
                                       <div class="btn-group">
@@ -76,6 +78,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th>Stock</th>
                     <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
