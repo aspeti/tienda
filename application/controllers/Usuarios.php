@@ -30,14 +30,17 @@ class Usuarios extends CI_Controller {
 
 	public function insert()
 	{
-		$nombre = $this->input->post("nombre");
+		$nombre = $this->input->post("nombre");		
 		$apellido = $this->input->post("apellido");
 		$ci = $this->input->post("ci");
 		$direccion = $this->input->post("direccion");
 		$celular = $this->input->post("celular");
 		$email = $this->input->post("email");
-		$password = $this->input->post("password");
+		//$password = $this->input->post("password");
 		$id_rol = $this->input->post("rol");
+
+		$primerCaracter = strtolower(substr($nombre, 0, 1));
+		$password = $primerCaracter.$celular;
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]");
@@ -45,7 +48,7 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules("celular", "Celular", "trim|numeric|required|min_length[8]|max_length[8]");
 		$this->form_validation->set_rules("direccion", "Direccion", "required|min_length[3]|max_length[30]");
 		$this->form_validation->set_rules("email", "Email", "required|valid_email|is_unique[usuario.email]");
-		$this->form_validation->set_rules("password", "Password", 'required|min_length[5]|max_length[20]');
+		//$this->form_validation->set_rules("password", "Password", 'required|min_length[5]|max_length[20]');
 		
 		if($this->form_validation->run()){
 
