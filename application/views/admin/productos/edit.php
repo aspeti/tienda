@@ -44,10 +44,16 @@
          
 
               <!-- form start -->    
-              <form action="<?php echo base_url();?>productos/update" method="POST">              
+              <form action="<?php echo base_url();?>productos/update" method="POST" enctype="multipart/form-data">            
                 <div class="card-body">
                   <div class="form-group">
                     <input type="hidden" name="idProducto" value="<?php echo $producto->id_producto; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="codigo">Codigo *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("codigo")) ? 'is-invalid':' ';?>" placeholder="codigo" id="codigo" name="codigo" 
+                            value="<?php echo !empty(form_error("codigo")) ? set_value("codigo") : $producto->codigo; ?>">
+                    <?php echo form_error("codigo","<span class='help-block'>","</span>")?>
                   </div>
                   <div class="form-group">
                     <label for="nombre">Nombre *</label>
@@ -72,6 +78,15 @@
                     value="<?php echo !empty(form_error("stock")) ? set_value("stock") : $producto->stock; ?>">
                     <?php echo form_error("stock","<span class='help-block'>","</span>")?>
                   </div> 
+                  <div class="form-group">
+                    <label for="exampleInputFile">Cargar archivo</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="customFile">
+                        <label class="custom-file-label" for="exampleInputFile">Seleccionar</label>
+                      </div>                     
+                    </div>
+                  </div>
 
                   <div class="form-group">                    
                     <label for="idCategoria">Categoria</label>

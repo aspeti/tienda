@@ -38,10 +38,12 @@
                   <thead>                 
                   <tr>
                     <th>#</th>
+                    <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
+                    <th>img</th>
                     <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
@@ -52,10 +54,12 @@
                       <?php foreach($productos as $producto):?>
                                 <tr>
                                   <td><?php echo $cont;?></td>
+                                  <td><?php echo $producto->codigo;?></td>
                                   <td><?php echo $producto->nombre;?></td>
                                   <td><?php echo $producto->descripcion;?></td>
                                   <td><?php echo $producto->precio;?></td>
                                   <td><?php echo $producto->stock;?></td>
+                                  <td><?php echo $producto->img;?></td>
                                   <td><?php echo $producto->categoria;?></td>
                                   <td>
                                       <div class="btn-group">
@@ -75,10 +79,12 @@
                  
                   <tr>
                     <th>#</th>
+                    <th>Codigo</th>                    
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Stock</th>
+                    <th>img</th>
                     <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
