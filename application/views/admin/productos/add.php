@@ -75,14 +75,15 @@
                           <?php echo form_error("stock","<span class='help-block'>","</span>")?> 
                   </div>  
                   <div class="form-group">
-                    <label for="exampleInputFile">seleccionar archivo</label>
+                    <label for="customFile">Subir Imagen</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="customFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="customFile" name="customFile">
+                        <label class="custom-file-label" for="customFile">Seleccionar Archivo</label>
                       </div>                     
                     </div>
                   </div>
+
                   <div class="form-group">
                     <label for="idCategoria">Categoria</label>
                     <select type="text" class="form-control" placeholder="categoria" name="idCategoria">
