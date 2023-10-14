@@ -41,10 +41,8 @@ class Productos extends CI_Controller {
 		$codigo = $this->input->post("codigo");	
         $id_categoria = $this->input->post("idCategoria");
 
-		
+		$idProductoImg = $this->Producto_model->getLastId();
 
-		
-		
 	//	$imgPath = '/assets/img/productos/'.$idProductoImg;
 		
 		$config['upload_path'] = './assets/img/productos/';
@@ -61,10 +59,10 @@ class Productos extends CI_Controller {
 		if ($this->upload->do_upload('customFile')) {
 			// Archivo subido exitosamente
 			$file_info = $this->upload->data();			
-			$file_type = $file_info['image_type'];
+			$file_type = $file_info['file_ext'];
 		}
-		$idProductoImg = $this->Producto_model->getLastId();
-		$imgPath = '/assets/img/productos/'.$idProductoImg.'.'.$file_type;
+		
+		$imgPath = '/assets/img/productos/'.$idProductoImg.$file_type;
 		
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
@@ -143,10 +141,10 @@ class Productos extends CI_Controller {
 		if ($this->upload->do_upload('customFile')) {
 			// Archivo subido exitosamente
 			$file_info = $this->upload->data();			
-			$file_type = $file_info['image_type'];
+			$file_type = $file_info['file_ext'];
 		}
 
-		$imgPath = '/assets/img/productos/'.$id.'.'.$file_type;
+		$imgPath = '/assets/img/productos/'.$id.$file_type;
 
 		$productoActual = $this->Producto_model->getProductoById($id);
 
