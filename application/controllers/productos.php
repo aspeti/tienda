@@ -60,12 +60,11 @@ class Productos extends CI_Controller {
 			// Archivo subido exitosamente
 			$file_info = $this->upload->data();			
 			$file_type = $file_info['file_ext'];
-		}
-		
-		$imgPath = '/assets/img/productos/'.$idProductoImg.$file_type;
-		
+		}		
 
-			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
+		$imgPath = '/assets/img/productos/'.$idProductoImg.$file_type;
+
+        //echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
 		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha_numeric_spaces|min_length[3]|max_length[20]");
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
