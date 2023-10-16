@@ -59,7 +59,7 @@
                                   <td><?php echo $producto->descripcion;?></td>
                                   <td><?php echo $producto->precio;?></td>
                                   <td><?php echo $producto->stock;?></td>
-                                  <td><?php echo $producto->img;?></td>
+                                  <td><img src="<?php echo base_url().$producto->img ;?>" class="product-image-thumb" alt="Product Image"></td>
                                   <td><?php echo $producto->categoria;?></td>
                                   <td>
                                       <div class="btn-group">

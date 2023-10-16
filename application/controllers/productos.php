@@ -48,9 +48,9 @@ class Productos extends CI_Controller {
 		$config['upload_path'] = './assets/img/productos/';
 		$config['allowed_types'] = 'jpeg|jpg|png';
 		$config['file_name'] = $idProductoImg;
-		$config['max_size']     = '100';
-		$config['max_width'] = '1024';
-		$config['max_height'] = '768';
+		$config['max_size']  = '2000';
+		$config['max_width'] = '2000';
+		$config['max_height'] = '2000';
 		$config['overwrite'] = TRUE;
 
 		$this->load->library('upload', $config);
@@ -67,7 +67,7 @@ class Productos extends CI_Controller {
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha_numeric_spaces|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]");
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
 		$this->form_validation->set_rules("codigo", "Codigo", "required|alpha_dash|is_unique[producto.codigo]");		
 		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|max_length[4]");
@@ -131,9 +131,9 @@ class Productos extends CI_Controller {
 		$config['upload_path'] = './assets/img/productos/';
 		$config['allowed_types'] = 'jpeg|jpg|png';
 		$config['file_name'] = $id;		
-		$config['max_size']  = '100';
-		$config['max_width'] = '1024';
-		$config['max_height'] = '768';
+		$config['max_size']  = '2000';
+		$config['max_width'] = '2000';
+		$config['max_height'] = '2000';
 		$config['overwrite'] = TRUE;
 
 		$this->load->library('upload', $config);
@@ -154,7 +154,7 @@ class Productos extends CI_Controller {
 		else{
 			$unique = '|is_unique[producto.codigo]';
 		}
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha_numeric_spaces|min_length[3]|max_length[20]".$unique);		
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]".$unique);		
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
 		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|max_length[4]");
 		$this->form_validation->set_rules("codigo", "Codigo", "required|alpha_dash".$unique);	
