@@ -35,7 +35,7 @@ class Clientes extends CI_Controller {
 		$direccion = $this->input->post("direccion");
 
 		// campo a validar, alias del campo, regla de validacion is unique( tabla,. nombre campo)	
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]|is_unique[cliente.nombre]");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha_numeric_spaces|min_length[3]|max_length[20]|is_unique[cliente.nombre]");
 
 		if($this->form_validation->run()){
 
