@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         
-                                        <form action="<?php echo base_url();?>movimientos/ventas/store" method="POST" class="form-horizontal">
+                                        <form action="<?php echo base_url();?>ventas/agregarventa" method="POST" class="form-horizontal" onsubmit=" return validarForm();">
                                             <div class="form-group row">                                                  
                                                 <div class="col-md-3">
                                                     <label for="comprobante">Comprobante:</label>                                                    
@@ -71,7 +71,7 @@
                                                 
                                             </div>
                                             <div class="form-group row">
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <label for="">Cliente:</label>
                                                     <div class="input-group">
                                                         <input type="hidden" name="idcliente" id="idcliente">
@@ -81,10 +81,11 @@
                                                         </span>
                                                     </div><!-- /input-group -->
                                                 </div> 
+                                                <!-- /Fecha 
                                                 <div class="col-md-3">
                                                     <label for="">Fecha:</label>
                                                     <input type="date" class="form-control" name="fecha" required>
-                                                </div>
+                                                </div>-->
                                             </div>
                                             <!--div class="form-group">
                                                 <div class="row">
@@ -134,14 +135,14 @@
                                                         <th>Codigo</th>
                                                         <th>Nombre</th>
 
-                                                        <th>Precio</th>
+                                                        <th>Precio Bs.</th>
                                                         <th>Stock Max.</th>
                                                         <th>Cantidad</th>
-                                                        <th>Importe</th>
+                                                        <th>Importe Bs.</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbody_detalle">
                                                 
                                                 </tbody>
                                             </table>
@@ -167,7 +168,7 @@
                                                 </div-->
                                                 <div class="col-md-3">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon">Total:</span>
+                                                        <span class="input-group-addon">Total Bs:</span>
                                                         <input type="text" class="form-control" placeholder="0.00" name="txttotal" id="txttotal"  readonly="readonly">
                                                     </div>
                                                 </div>
@@ -176,8 +177,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-success btn-flat">Guardar</button>
-                                                </div>
-                                                
+                                                </div>                                                
                                             </div>
                                         </form>
                                     </div>
@@ -263,6 +263,13 @@
 
  document.addEventListener("DOMContentLoaded", function(event) {
 
+    //Initialize Select2 Elements
+    $('.select2').select2()  //to select and search products
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
 
 ///----------------add info to Agregar button when product change
     $("#producto").on("change", function(){
@@ -291,7 +298,7 @@
         else{
 
             let fila = getRowDetalle(id_producto,codigo,nombre,stock,precio);
-            $('#tbventas tbody').append(fila);
+            $('#tbody_detalle').append(fila);
 
         }
         calcularTotal();
@@ -304,13 +311,12 @@
     let html = '<tr id="fila_'+id+'">';
     html+='<td><input type="hidden" name="idcodigo[]" value="'+id+'"/>'+codigo+'</td>';
     html+='<td><input type="hidden" name="iddescripcion[]" value="'+id+'"/>'+descripcion+'</td>';
-    html+='<td><input type="hidden" name="precio[]" value="'+precio+'"/>'+precio+'</td>';
-    html+='<td><input type="hidden" name="stock[]" value="'+precio+'"/>'+stock+'</td>';
-    html+='<td><input id="cantidad_'+id+'" name="cantidad[]" type="number" value="1" min="1" max="999" onkeyup="setCantidad('+id+','+precio+')" onchange="setCantidad('+id+','+precio+')"/></td>';
+    html+='<td><input type="hidden" name="precios[]" value="'+precio+'"/>'+precio+'</td>';
+    html+='<td><input type="hidden" name="stock[]" value="'+stock+'"/>'+stock+'</td>';
+    html+='<td><input id="cantidad_'+id+'" name="cantidad[]" type="number" value="1" min="1" max="'+stock+'" onkeyup="setCantidad('+id+','+precio+')" onchange="setCantidad('+id+','+precio+')"/></td>';
     html+='<td><input  type="text" id="txt_subtotal_'+id+'" class="txt_subtotal disable" value="'+precio+'" readonly/></td>';
     html+='<td><button class="btn btn-danger" type="button" onclick="eliminarDetalle('+id+')"><i class="fa fa-trash"></i> </button></td>';
     html+='</tr>';
-
     arr_ids.push(id);
 
     return html;

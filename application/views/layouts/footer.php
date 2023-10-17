@@ -141,6 +141,8 @@
         }
     });
 
+
+
    //**----------------VENTAS TO SELECT CLIENTE */ 
 /*
     $(document).on("click","btn-check",function(){
@@ -161,12 +163,6 @@
       $("#modal-default").modal("hide");
     })
 
-    //Initialize Select2 Elements
-    $('.select2').select2()
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
 
   });
 //-- -------------------------- profile---------------------------------------------------->

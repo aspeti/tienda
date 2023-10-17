@@ -38,32 +38,29 @@
                   <thead>                 
                   <tr>
                     <th>#</th>
-                    <th>Producto</th>
-                    <th>Categoria</th>
-                    <th>cliente</th>
-                    <th>Precio</th>
-                    <th>Total</th>                   
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>numero documento</th>                   
+                    <th>Total</th>    
+                    <th>Acciones</th>                 
                   </tr>
                   </thead>
                   <tbody>
-                  <?php if(!empty($productos)):?>
+                  <?php if(!empty($ventas)):?>
                         <?php $cont = 1;?>
-                      <?php foreach($productos as $producto):?>
+                      <?php foreach($ventas as $venta):?>
                                 <tr>
                                   <td><?php echo $cont;?></td>
-                                  <td><?php echo $producto->nombre;?></td>
-                                  <td><?php echo $producto->descripcion;?></td>
-                                  <td><?php echo $producto->precio;?></td>
-                                  <td><?php echo $producto->stock;?></td>
-                                  <td><?php echo $producto->categoria;?></td>
+                                  <td><?php echo $venta->fecha_creacion;?></td>
+                                  <td><?php echo $venta->cliente;?></td>
+                                  <td><?php echo $venta->num_documento;?></td>
+                                  <td><?php echo $venta->total;?></td>                                 
+                                  
                                   <td>
                                       <div class="btn-group">
-                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
+                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$venta->id_venta;?>">
                                           <span class="fa fa-search"></span>
-                                        </button>
-                                        <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
-                                        <a class="btn btn-warning" href="<?php echo base_url();?>productos/edit/<?php echo $producto->id_producto;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
-                                        <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>productos/delete/<?php echo $producto->id_producto;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
+                                        </button>   
                                       </div>
                                   </td>  
                                 </tr>  
