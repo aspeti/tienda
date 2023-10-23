@@ -38,13 +38,38 @@ class Productos extends CI_Controller {
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
 		$stock = $this->input->post("stock");
-        $id_categoria = $this->input->post("idCategoria");		
+		$codigo = $this->input->post("codigo");	
+        $id_categoria = $this->input->post("idCategoria");
 
-			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
+		$idProductoImg = $this->Producto_model->getLastId();
 
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]|is_unique[producto.nombre]");
+	//	$imgPath = '/assets/img/productos/'.$idProductoImg;
+		
+		$config['upload_path'] = './assets/img/productos/';
+		$config['allowed_types'] = 'jpeg|jpg|png';
+		$config['file_name'] = $idProductoImg;
+		$config['max_size']  = '2000';
+		$config['max_width'] = '2000';
+		$config['max_height'] = '2000';
+		$config['overwrite'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		
+		if ($this->upload->do_upload('customFile')) {
+			// Archivo subido exitosamente
+			$file_info = $this->upload->data();			
+			$file_type = $file_info['file_ext'];
+		}		
+
+		$imgPath = '/assets/img/productos/'.$idProductoImg.$file_type;
+
+        //echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
+
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]");
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
-		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|min_length[4]|max_length[4]");
+		$this->form_validation->set_rules("codigo", "Codigo", "required|alpha_dash|is_unique[producto.codigo]");		
+		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|max_length[4]");
         
 		if($this->form_validation->run()){	
 
@@ -53,13 +78,15 @@ class Productos extends CI_Controller {
 					'descripcion'=> $descripcion,		
 					'precio'=> $precio,
 					'stock'=> $stock,
+					'codigo'=> $codigo,					
+					'img'=> $imgPath,
 					'eliminado' => "0",
 					'id_categoria' => $id_categoria,
 					'fecha_creacion' => date('Y-m-d H:i:s'),
 					'fecha_actualizacion' => date('Y-m-d H:i:s')
 				);
 
-				if($this->Producto_model->save($newProducto)){
+				if($this->Producto_model->save($newProducto)){				
 					redirect(base_url()."productos");
 				}else{
 					$this->session->set_flashdata("Error","No se pudo guardar el registro");
@@ -95,22 +122,43 @@ class Productos extends CI_Controller {
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
 		$stock = $this->input->post("stock");
-        $id_categoria = $this->input->post("idCategoria");
+		$codigo = $this->input->post("codigo");
+        $id_categoria = $this->input->post("idCategoria");		
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
 
+		$config['upload_path'] = './assets/img/productos/';
+		$config['allowed_types'] = 'jpeg|jpg|png';
+		$config['file_name'] = $id;		
+		$config['max_size']  = '2000';
+		$config['max_width'] = '2000';
+		$config['max_height'] = '2000';
+		$config['overwrite'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('customFile')) {
+			// Archivo subido exitosamente
+			$file_info = $this->upload->data();			
+			$file_type = $file_info['file_ext'];
+		}
+
+		$imgPath = '/assets/img/productos/'.$id.$file_type;
+
 		$productoActual = $this->Producto_model->getProductoById($id);
 
-		if($nombre == $productoActual->nombre){
+		if($codigo == $productoActual->codigo){
 			$unique = '';
 		}
 		else{
-			$unique = '|is_unique[producto.nombre]';
+			$unique = '|is_unique[producto.codigo]';
 		}
-
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]".$unique);
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]".$unique);		
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
-		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|min_length[4]|max_length[4]");
+		$this->form_validation->set_rules("stock", "Stock", "trim|numeric|required|max_length[4]");
+		$this->form_validation->set_rules("codigo", "Codigo", "required|alpha_dash".$unique);	
+
+		
         
 		if($this->form_validation->run()){
 
@@ -119,12 +167,15 @@ class Productos extends CI_Controller {
 					'descripcion' => $descripcion,
 					'precio' => $precio,
 					'stock'=> $stock,
+					'codigo'=> $codigo,
+					'img'=> $imgPath,
 					'id_categoria' => $id_categoria,
 					'fecha_actualizacion' => date('Y-m-d H:i:s')			
 				);
 
-				if($this->Producto_model->update($id, $data)){
+				if($this->Producto_model->update($id, $data)){					
 					redirect(base_url()."productos");
+					
 				}else{
 					$this->session->set_flashdata("Error","No se pudo actualizar el registro");
 					redirect(base_url()."productos/edit/".$id);

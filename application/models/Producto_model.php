@@ -30,6 +30,26 @@ class Producto_model extends CI_Model {
         $this->db->where("id_producto", $id);     
         return $this->db->update("producto", $data); 
     }
+
+    public function getLastId() {
+        // Consulta para obtener el último ID registrado
+            $this->db->select('id_producto');
+            $this->db->from('producto');
+            $this->db->order_by('id_producto', 'DESC');
+            $this->db->limit(1);
+            $query = $this->db->get();
     
+            if ($query->num_rows() > 0) {
+            // Si hay registros en la tabla
+                $row = $query->row();
+                $ultimo_id = $row->id_producto;
+                $proximo_id = $ultimo_id + 1;
+            } else {
+            // Si no hay registros en la tabla (por ejemplo, tabla vacía)
+                $proximo_id = 1;
+            }
+    
+            return $proximo_id;
+    }    
 
 }

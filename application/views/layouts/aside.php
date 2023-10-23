@@ -41,7 +41,7 @@
               <li class="nav-item">
                 <a href="<?php echo base_url();?>categorias" class="nav-link">
                   <i class="fas fa-bars nav-icon"></i>
-                  <p>Catergoria</p>
+                  <p>Categorias</p>
                 </a>
               </li>   
             </ul>
@@ -55,10 +55,15 @@
             </ul>
           </li>           
           <?php }?>                        
-          <?php if($this->session->userdata('rol') == 2) { ?>   
-                
+          <?php if($this->session->userdata('login')) { ?>   
                   <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
+                      <a href="<?php echo base_url();?>clientes" class="nav-link">
+                      <i class="fas fa-users  nav-icon"></i>
+                      <p>Clientes</p>
+                      </a>
+                  </li>   
+                  <li class="nav-item">
+                      <a href="<?php echo base_url();?>ventas" class="nav-link">
                       <i class="fas fa-shopping-basket nav-icon"></i>
                       <p>Ventas</p>
                       </a>

@@ -19,6 +19,8 @@
 <script src="<?php echo base_url();?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>assets/dist/js/adminlte.js"></script>
+<!-- bs-custom-file-input -->
+<script src="<?php echo base_url();?>assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
 <!-- DataTables  & Plugins -->
 <script  src="<?php echo base_url();?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -51,7 +53,7 @@
 <!-- Select2 -->
 <script src="<?php echo base_url();?>assets/plugins/select2/js/select2.full.min.js"></script>
 
-<!-- Page specific script -->
+
 <script>
   $(function () {
 
@@ -89,11 +91,7 @@
         }
       });
     
-    });
-
-    
-
-
+    });   
 
     $("#reporte").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -107,7 +105,6 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
-
       "language": {
             "lengthMenu": "mostrar _MENU_ registros por pagina",
             "zeroRecords": "No se encontró nada - lo siento",
@@ -121,6 +118,52 @@
             }
         }
     });
+    ///---------properties for datatable lista in modal--------
+    $('#listamodal').DataTable({
+      "paging": false, 
+      "lengthChange": true,  
+      "searching": true,
+      "ordering": true,
+      "info": false,
+      "autoWidth": false,
+      "responsive": false,
+      "language": {
+            "lengthMenu": "mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontró nada - lo siento",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search": "Buscar",
+            "paginate" :{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+        }
+    });
+
+
+
+   //**----------------VENTAS TO SELECT CLIENTE */ 
+/*
+    $(document).on("click","btn-check",function(){
+      var cliente = $(this).val();
+      infoCliente = cliente.split("*");
+      console.log(infoCliente[0]);
+      $("#idcliente").val(infoCliente[0]);
+      $("#cliente").val(infoCliente[1]);      
+      $("#modal-default").modal("hide");
+    })
+*/
+    //-------------------ACtion BTN check agregar cliente en venta------------------------------------
+    $(".btn-check").on("click",function(){
+      var cliente = $(this).val();
+      infoCliente = cliente.split("*");
+      $("#idcliente").val(infoCliente[0]);
+      $("#cliente").val(infoCliente[1]);      
+      $("#modal-default").modal("hide");
+    })
+
+
   });
 //-- -------------------------- profile---------------------------------------------------->
 
@@ -136,8 +179,54 @@
   
   }
 
+  ///--------carga el nombre del archivo en el textbox -->
+
+    $(function () {
+      bsCustomFileInput.init();
+    });
+
+    //-- -------------------------- fro every change on comprobante--------------------------->
+    $("#comprobante").on("change", function(){
+      option = $(this).val() // if option is changed
+      if( option!=""){
+        infoComprobante = option.split("*"); // make split
+        $("#idcomprobante").val(infoComprobante[0]); //acording to array in split 
+        $("#igv").val(infoComprobante[2]);
+        $("#serie").val(infoComprobante[3]);
+        $("#numero").val(generarNumero(infoComprobante[1]));
+      }else{
+        $("#idcomprobante").val(null); //acording to array in split 
+        $("#igv").val(null);
+        $("#serie").val(null);
+        $("#numero").val(null);
+      }
+
+    })
+
+    //-------------Generate numero -------------------
+    function generarNumero(numero){
+        if(numero>=99999 && numero<999999){
+          return Number(numero)+1;
+        }
+        if(numero>=9999 && numero<99999){
+          return "0" + (Number(numero)+1);
+        }
+        if(numero>=999 && numero<9999){
+          return "00" + (Number(numero)+1);
+        }
+        if(numero>=99 && numero<999){
+          return "000" + (Number(numero)+1);
+        }
+        if(numero>=9 && numero<99){
+          return "0000" + (Number(numero)+1);
+        }
+        if(numero<9){
+          return "00000" + (Number(numero)+1);
+        }
+    }
+    //--action btn-check------------------------------------------------
 
 
+ 
 </script>
-</body>
 </html>
