@@ -22,37 +22,37 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">         
           <?php if($this->session->userdata('rol') == 1) { ?>  
           <li class="nav-item">
-            <a href="#" class="nav-link">                           
+           <!-- <a href="#" class="nav-link">                           
               <i class="nav-icon fas fa-cog"></i>           
               <p>
                 Panel
                 <i class="fas fa-angle-left right"></i>
               </p>
-            </a>
-            <ul class="nav nav-treeview">
+            </a>-->
+           <!-- <ul class="nav nav-treeview">-->
               <li class="nav-item">
                 <a href="<?php echo base_url();?>usuarios" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
-              </li>   
-            </ul>
-            <ul class="nav nav-treeview">
+              </li>  
+            <!--</ul>-->
+            <!--<ul class="nav nav-treeview">-->
               <li class="nav-item">
                 <a href="<?php echo base_url();?>categorias" class="nav-link">
                   <i class="fas fa-bars nav-icon"></i>
                   <p>Categorias</p>
                 </a>
               </li>   
-            </ul>
-            <ul class="nav nav-treeview">
+            <!--</ul>-->
+            <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>productos" class="nav-link">
                           <i class="fas fa-store nav-icon"></i>
                           <p>Productos</p>
                         </a>
                       </li>   
-            </ul>
+            <!--</ul>-->
           </li>           
           <?php }?>                        
           <?php if($this->session->userdata('login')) { ?>   

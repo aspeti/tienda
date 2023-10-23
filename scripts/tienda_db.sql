@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `tienda_db`.`ventas` (
   `subtotal` VARCHAR(250) NOT NULL,
   `igv` VARCHAR(250) NULL DEFAULT NULL,
   `descuento` VARCHAR(45) NULL DEFAULT NULL,
-  `total` DATETIME NOT NULL,
+  `total` DECIMAL(6, 2) NOT NULL,
   `id_cliente` INT(11) NOT NULL,
   `serie` VARCHAR(45) NULL,
   `num_documento` VARCHAR(45) NULL,
