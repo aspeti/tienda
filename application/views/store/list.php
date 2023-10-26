@@ -58,7 +58,7 @@
                                   
                                   <td>
                                       <div class="btn-group">
-                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$venta->id_venta;?>">
+                                        <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$venta->id_venta;?>">
                                           <span class="fa fa-search"></span>
                                         </button>   
                                       </div>
@@ -79,6 +79,24 @@
                   </tr>
 
                 </table>
+
+                <form action="<?php echo base_url();?>ventas/reportefechas" method="POST">
+                <div class ="col-md-6">
+                  <div class ="row">
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" name="fechaInicial" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" name="fechaFinal" required>
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-8">
+                        <label for="">&nbsp;</label>
+                        <button id="btn-Generar" type="submit" class="btn btn-block btn-primary"><span class="fa fa-plus"></span> Exportar</button>
+                    </div>
+                </div>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
