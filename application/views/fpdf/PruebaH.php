@@ -16,7 +16,7 @@ class PDF extends FPDF
       $this->SetTextColor(0, 0, 0);
       $this->Cell(1); // mover a la derecha
       $this->SetFont('Arial', 'B', 15);
-      $this->Cell(100, 10, utf8_decode("REPORTE DE TIENDA"), 0, 1, 'C', 0);
+      $this->Cell(100, 10, utf8_decode("REPORTE GENERAL DE VENTAS"), 0, 1, 'C', 0);
       $this->Ln(7);
 
       $this->SetFillColor(0,0,0); //colorFondo
