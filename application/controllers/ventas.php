@@ -140,4 +140,17 @@ class ventas extends CI_Controller {
 		
 	}
 
+	public function reportes()
+	{
+		$data = array(
+			"ventas" => $this->Ventas_model->getAllVentas(),					
+		);
+		
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('store/reportes', $data);
+		$this->load->view('layouts/footer');		
+		
+	}
+
 }

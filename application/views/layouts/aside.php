@@ -67,7 +67,13 @@
                       <i class="fas fa-shopping-basket nav-icon"></i>
                       <p>Ventas</p>
                       </a>
-                  </li>   
+                  </li> 
+                  <li class="nav-item">
+                      <a href="<?php echo base_url();?>ventas/reportes" class="nav-link">
+                      <i class="fas fa-file-text nav-icon"></i>
+                      <p>Reportes</p>
+                      </a>
+                  </li>  
           <?php }?>     
                     
         </ul>
