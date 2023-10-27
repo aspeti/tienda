@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Ventas</h1>
+            <h1>Reportes</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">lista</li>
+              <li class="breadcrumb-item active">Reportes</li>
             </ol>
           </div>
         </div>
@@ -24,13 +24,6 @@
           <div class="col-12">
 
             <div class="card">
-              <div class="card-header">                
-                <div class ="col-md-2" >
-                  <a href="<?php echo base_url();?>ventas/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
-                    <span class="fa fa-plus"></span>  Agregar Venta
-                  </a>
-                </div>
-              </div>
               <!-- /.card-header -->
               <div class="card-body">           
 
@@ -80,6 +73,23 @@
 
                 </table>
 
+                <form action="<?php echo base_url();?>ventas/reportefechas" method="POST">
+                <div class ="col-md-6">
+                  <div class ="row">
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" name="fechaInicial" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" name="fechaFinal" required>
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-8">
+                        <label for="">&nbsp;</label>
+                        <button id="btn-Generar" type="submit" class="btn btn-block btn-primary"><span class="fa fa-plus"></span> Exportar</button>
+                    </div>
+                </div>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
