@@ -91,7 +91,7 @@
                         <label for="rol">Rol</label>
                         <select class="form-control select2" style="width: 100%;" name="rol">
                             <!--option selected="selected">Cliente</!--option-->
-                            <option value='2'>Usuario</option>
+                            <option value='2'>Empleado</option>
                             <option value='1'>Administrador</option>      
                         </select>
                    </div>        
