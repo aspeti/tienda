@@ -40,8 +40,7 @@
                     <th>Nombre</th>
                     <th>Direccion</th>
                     <th>Telefono</th>
-                    <th>Num Documento</th>
-                    <th>Tipo Cliente</th>                    
+                    <th>Num Documento</th>                                     
                     <th>Acciones</th>
                   </tr>
                   </thead>
@@ -54,8 +53,7 @@
                     <td><?php echo $cliente->nombre;?></td>
                     <td><?php echo $cliente->direccion;?></td>
                     <td><?php echo $cliente->telefono;?></td>
-                    <td><?php echo $cliente->num_documento;?></td>
-                    <td><?php echo $cliente->id_tipo_cliente;?></td>                    
+                    <td><?php echo $cliente->num_documento;?></td>                                
                     <td>
                         <div class="btn-group">
                           <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='clientes/view/'.$cliente->id_cliente;?>">
@@ -77,8 +75,7 @@
                     <th>Nombre</th>
                     <th>Direccion</th>
                     <th>Telefono</th>
-                    <th>Num Documento</th>
-                    <th>Tipo Cliente</th>                    
+                    <th>Num Documento</th>                                    
                     <th>Acciones</th>
                   </tr>
 
