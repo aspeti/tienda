@@ -191,48 +191,53 @@
                 </div>
                 <!-- /.content-wrapper -->
 
-                <div class="modal fade" id="modal-default">
+                <div class="modal fade " id="modal-default">
                     <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!--button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></-button-->
-                                <h4 class="modal-title">Lita de Clientes</h4>
-                            </div>
-                            <div class="modal-body">
-                                <table id="listamodal" class="table table-bordered table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Documento</th>
-                                            <th>Opcion</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php if(!empty($clientes)):?>
-                                        <?php $cont = 1;?>
-                                        <?php foreach($clientes as $cliente):?>
-                                        <tr>
-                                            <td><?php echo $cont;?></td>
-                                            <td><?php echo $cliente->nombre;?></td>
-                                            <td><?php echo $cliente->num_documento;?></td>                   
-                                            <td>
-                                                <button type="button" class="btn btn-success btn-check" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClient = $cliente->id_cliente."*". $cliente->nombre;?>">
-                                                    <span class="fa fa-check"></span>
-                                                </button>                                                
-                                            </td>  
-                                        </tr>
-                                        <?php $cont++;?>  
-                                        <?php endforeach;?>
-                                        <?php endif; ?>      
-                                        
-                                    </tbody>
-                                </table>
+                        <div class="modal-content container">
+                            <div class="modal-header">                          
+                                <h4 class="modal-title">Clientes</h4>  
+                            </div>                   
+                            <div class="modal-body">                     
+                                    
+                             
+                                        <table id="listamodal" class="table table-bordered table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Nombre</th>
+                                                    <th>Documento</th>
+                                                    <th>Opcion</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if(!empty($clientes)):?>
+                                                <?php $cont = 1;?>
+                                                <?php foreach($clientes as $cliente):?>
+                                                <tr>
+                                                    <td><?php echo $cont;?></td>
+                                                    <td><?php echo $cliente->nombre;?></td>
+                                                    <td><?php echo $cliente->num_documento;?></td>                   
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-check" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClient = $cliente->id_cliente."*". $cliente->nombre;?>">
+                                                            <span class="fa fa-check"></span>
+                                                        </button>                                                
+                                                    </td>  
+                                                </tr>
+                                                <?php $cont++;?>  
+                                                <?php endforeach;?>
+                                                <?php endif; ?>      
+                                                
+                                            </tbody>
+                                        </table>
+                                
+                             
                             </div>
                             <div class="modal-footer">
+                                <a href="<?php echo base_url();?>clientes/add" type="button" class="btn btn-primary pull-left" >Agregar</a>
                                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+
                             </div>
+                            
                         </div>
                         <!-- /.modal-content -->
                     </div>
