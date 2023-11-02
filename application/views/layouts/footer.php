@@ -89,13 +89,25 @@
           //alert(resp);
           $("#modal-default .modal-body").html(resp);
         }
-      });
-    
+      });    
     });   
 
-    $("#reporte").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": true,"searching": false,
+      "language": {
+            "lengthMenu": "mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontró nada - lo siento",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search": "Buscar",
+            "paginate" :{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+        },
+     // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    //  "buttons": ["excel", "pdf"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#lista').DataTable({
       "paging": true, 
@@ -141,19 +153,6 @@
         }
     });
 
-
-
-   //**----------------VENTAS TO SELECT CLIENTE */ 
-/*
-    $(document).on("click","btn-check",function(){
-      var cliente = $(this).val();
-      infoCliente = cliente.split("*");
-      console.log(infoCliente[0]);
-      $("#idcliente").val(infoCliente[0]);
-      $("#cliente").val(infoCliente[1]);      
-      $("#modal-default").modal("hide");
-    })
-*/
     //-------------------ACtion BTN check agregar cliente en venta------------------------------------
     $(".btn-check").on("click",function(){
       var cliente = $(this).val();

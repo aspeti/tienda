@@ -126,31 +126,4 @@ class ventas extends CI_Controller {
 		$this->Producto_model->update($idProducto, $data);
 	}
 
-	public function reportefechas()
-	{		  
-		$FechaInicial = $this->input->post("fechaInicial");
-		$FechaFinal = $this->input->post("fechaFinal");
-
-		$data = array(
-			"ventas" => $this->Ventas_model->getAllComprobantesforFecha($FechaInicial, $FechaFinal),					
-		);
-
-		$this->load->view('fpdf\Pruebah.php', $data);	
-		
-		
-	}
-
-	public function reportes()
-	{
-		$data = array(
-			"ventas" => $this->Ventas_model->getAllVentas(),					
-		);
-		
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/aside');
-		$this->load->view('store/reportes', $data);
-		$this->load->view('layouts/footer');		
-		
-	}
-
 }
