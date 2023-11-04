@@ -90,7 +90,7 @@
                         </div> 
                       </div> 
                   </form>
-                  <form action="<?php echo base_url() ?>reportes/exportar" method="POST"  target="_blank" >
+                  <form action="<?php echo base_url() ?>reportes/reporte" method="POST"  target="_blank" >
                       <div class=" form-group  row"> 
                           <input type="hidden" class="form-control" name="inicio" id="inicio" value="<?php echo !empty($fecha_inicio)? $fecha_inicio:'';?>"/>
                           <input type="hidden" class="form-control" name="fin" id="fin" value="<?php echo !empty($fecha_fin)? $fecha_fin:'';?>"/>

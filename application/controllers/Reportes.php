@@ -34,21 +34,23 @@ class Reportes extends CI_Controller {
 		
 	}
 
-	public function exportar()
-	{		  
+	public function reporte()
+	{	
+		 
 		$fecha_inicio = $this->input->post("inicio");
         $fecha_fin = $this->input->post("fin");
 
 		if(!empty($fecha_inicio)){
 			$data = array(
-				"ventas" => $this->Reporte_model->getAllVentasByDate($fecha_inicio, $fecha_fin),								
-			);	
-			$this->load->view('reportes/fpdf/PruebaH', $data);		
+				"ventas" => $this->Reporte_model->getAllVentasByDate($fecha_inicio, $fecha_fin),			  					
+			);				
+			$this->load->view('reportes/fpdf/ventas', $data);		
 		}else{
 			$data = array(
-				"ventas" => $this->Reporte_model->getAllVentas(),								
+				"ventas" => $this->Reporte_model->getAllVentas(),	
+								
 			);	
-			$this->load->view('reportes/fpdf/PruebaH', $data);
+			$this->load->view('reportes/fpdf/ventas',  $data);
 		}
 		
 	}
