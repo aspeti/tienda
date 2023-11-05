@@ -5,7 +5,8 @@ class Reportes extends CI_Controller {
 
 	public function __construct(){
         parent::__construct();
-        $this->load->model('Reporte_model');  
+        $this->load->model('Reporte_model'); 
+		$this->load->model('Usuario_model');
     }
 
     public function index()
@@ -34,7 +35,7 @@ class Reportes extends CI_Controller {
 		
 	}
 
-	public function reporte()
+	public function reporte($id)
 	{	
 		 
 		$fecha_inicio = $this->input->post("inicio");
@@ -42,17 +43,35 @@ class Reportes extends CI_Controller {
 
 		if(!empty($fecha_inicio)){
 			$data = array(
-				"ventas" => $this->Reporte_model->getAllVentasByDate($fecha_inicio, $fecha_fin),			  					
+				"ventas" => $this->Reporte_model->getAllVentasByDate($fecha_inicio, $fecha_fin),
+				'usuario' => $this ->Usuario_model->getUsuarioById($id),	
+				"fechaInicio"=>$fecha_inicio, 
+				"fechaFinal"=>$fecha_inicio, 					
 			);				
 			$this->load->view('reportes/fpdf/ventas', $data);		
 		}else{
 			$data = array(
-				"ventas" => $this->Reporte_model->getAllVentas(),	
+				"ventas" => $this->Reporte_model->getAllVentas(),
+				'usuario' => $this ->Usuario_model->getUsuarioById($id),	
+				"fechaInicio"=>"---------", 
+				"fechaFinal"=>"----------",
 								
 			);	
 			$this->load->view('reportes/fpdf/ventas',  $data);
 		}
 		
+	}
+
+	public function comprobante($id)
+	{	
+				
+		$data = array(
+			"venta" => $this->Reporte_model->getVentaByID($id),	
+			"ventas" => $this->Reporte_model->getAllDetalleById($id),
+		);	
+
+		$this->load->view('reportes/fpdf/recibo',  $data);
+
 	}
 
 }
