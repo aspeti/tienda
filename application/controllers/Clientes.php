@@ -35,7 +35,7 @@ class Clientes extends CI_Controller {
 		$direccion = $this->input->post("direccion");
 
 		// campo a validar, alias del campo, regla de validacion is unique( tabla,. nombre campo)	
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha_numeric_spaces|min_length[3]|max_length[20]|is_unique[cliente.nombre]");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]|is_unique[cliente.nombre]");
 
 		if($this->form_validation->run()){
 
@@ -101,7 +101,7 @@ class Clientes extends CI_Controller {
 		}
 
 		$this->form_validation->set_rules("num_documento", "Numero de Documento",  "required|alpha_dash|min_length[3]|max_length[10]".$unique);
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]");
 		$this->form_validation->set_rules("telefono", "Telefono", "required|numeric|min_length[3]|max_length[8]");
 
 
