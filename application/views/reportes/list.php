@@ -73,8 +73,7 @@
             <div class="card">
               <div class="card-header">
                 <!--h3 class="card-title">lISTA DE VENTAS</!h3-->                              
-        
-                  <form action="<?php echo base_url() ?>reportes" method="POST">
+                  <form action="<?php echo base_url() ?>reportes/<?php echo $this->session->userdata('id_usuario'); ?>" method="POST">
                       <div class=" form-group  row">
                         <label for="" class="control-label">Fecha Inicio:</label>   
                         <div class="col-md-2 mr-4">                          
@@ -90,7 +89,7 @@
                         </div> 
                       </div> 
                   </form>
-                  <form action="<?php echo base_url() ?>reportes/reporte" method="POST"  target="_blank" >
+                  <form action="<?php echo base_url() ?>reportes/reporte/<?php echo $this->session->userdata('id_usuario'); ?>" method="POST"  target="_blank" >
                       <div class=" form-group  row"> 
                           <input type="hidden" class="form-control" name="inicio" id="inicio" value="<?php echo !empty($fecha_inicio)? $fecha_inicio:'';?>"/>
                           <input type="hidden" class="form-control" name="fin" id="fin" value="<?php echo !empty($fecha_fin)? $fecha_fin:'';?>"/>

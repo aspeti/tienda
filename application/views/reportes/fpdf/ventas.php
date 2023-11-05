@@ -23,33 +23,13 @@ class PDF extends FPDF
       $this->SetTextColor(103); //color
 
       /* UBICACION */
-      $this->Cell(45);  // mover a la derecha
-      $this->SetFont('Arial', 'B', 10);
-      $this->Cell(96, 10, utf8_decode("Usuario : "), 0, 0, '', 0);
-      $this->Ln(5);
-/*
-      $hoy = date('d/m/Y');
-      $this->Cell(355, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)*/
-
-      /* TELEFONO */
-      $this->Cell(45);  // mover a la derecha
-      $this->SetFont('Arial', 'B', 10);
-      $hoy = date('d/m/Y');
-      $this->Cell(59, 10, utf8_decode("Fecha Inicial : "), 0, 0, '', 0);
-      $this->Ln(5);
-      
-
-      /* COREEO */
-      $this->Cell(45);  // mover a la derecha
-      $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("Fecha Final : "), 0, 0, '', 0);
-      $this->Ln(5);
+     
 
       /* TELEFONO */
       $this->Cell(45);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("Sucursal : Cochabamba"), 0, 0, '', 0);
-      $this->Ln(20);
+      $this->Ln(30);
 
       /* TITULO DE LA TABLA */
       //color
@@ -106,6 +86,31 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AddPage('landscape'); /* aqui entran dos para parametros (horientazion,tamaño)V->portrait H->landscape tamaño (A3.A4.A5.letter.legal) */
 $pdf->AliasNbPages(); //muestra la pagina / y total de paginas
+
+
+$pdf->SetY(33);
+$pdf->Cell(45);  // mover a la derecha
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(96, 10, utf8_decode("Usuario : " .$usuario->nombre.' '.$usuario->apellido), 0, 0, '', 0);
+$pdf->Ln(5);
+/*
+$hoy = date('d/m/Y');
+$this->Cell(355, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)*/
+
+/* TELEFONO */
+$pdf->Cell(45);  // mover a la derecha
+$pdf->SetFont('Arial', 'B', 10);
+$hoy = date('d/m/Y');
+$pdf->Cell(59, 10, utf8_decode("Fecha Inicial : ".$fechaInicio), 0, 0, '', 0);
+$pdf->Ln(5);
+
+
+/* COREEO */
+$pdf->Cell(45);  // mover a la derecha
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(85, 10, utf8_decode("Fecha Final : ".$fechaFinal), 0, 0, '', 0);
+$pdf->Ln(25);
+
 
 $i = 0;
 $pdf->SetFont('Arial', '', 12);

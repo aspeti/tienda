@@ -28,8 +28,28 @@ class Reporte_model extends CI_Model {
             return $resultados->result();
         }else{
             return false;
-        }
+        }   
+    }
+
+    public function getVentaByID($id){          
+        $this->db->select("v.*, c.nombre as cliente, c.num_documento as ci");
+        $this->db->from("ventas v");
+        $this->db->join("cliente c", "c.id_cliente = v.id_cliente");    
+        $this->db->where("v.eliminado","0");
+        $this->db->where("v.id_venta", $id);
+        $resultados = $this->db->get();
+        return $resultados->row(); 
+    }
+
+    public function getAllDetalleById($id){          
+        $this->db->select("d.*, p.nombre as producto");
+        $this->db->from("detalle d");
+        $this->db->join("producto p", "d.id_producto = p.id_producto");    
+        $this->db->where("d.id_venta", $id);
+        $resultados = $this->db->get();
+        return $resultados->result();
         
+
     }
 
 }
