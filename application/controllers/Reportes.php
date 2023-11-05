@@ -6,7 +6,6 @@ class Reportes extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('Reporte_model'); 
-		$this->load->model('Usuario_model');
     }
 
     public function index()
@@ -35,7 +34,7 @@ class Reportes extends CI_Controller {
 		
 	}
 
-	public function reporte($id)
+	public function reporte()
 	{	
 		 
 		$fecha_inicio = $this->input->post("inicio");
@@ -44,15 +43,15 @@ class Reportes extends CI_Controller {
 		if(!empty($fecha_inicio)){
 			$data = array(
 				"ventas" => $this->Reporte_model->getAllVentasByDate($fecha_inicio, $fecha_fin),
-				'usuario' => $this ->Usuario_model->getUsuarioById($id),	
+				'usuario' => $this->session->userdata("nombre"),	
 				"fechaInicio"=>$fecha_inicio, 
-				"fechaFinal"=>$fecha_inicio, 					
+				"fechaFinal"=>$fecha_fin, 					
 			);				
 			$this->load->view('reportes/fpdf/ventas', $data);		
 		}else{
 			$data = array(
 				"ventas" => $this->Reporte_model->getAllVentas(),
-				'usuario' => $this ->Usuario_model->getUsuarioById($id),	
+				'usuario' => $this->session->userdata("nombre"),	
 				"fechaInicio"=>"---------", 
 				"fechaFinal"=>"----------",
 								

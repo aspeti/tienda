@@ -91,7 +91,7 @@ $pdf->AliasNbPages(); //muestra la pagina / y total de paginas
 $pdf->SetY(33);
 $pdf->Cell(45);  // mover a la derecha
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(96, 10, utf8_decode("Usuario : " .$usuario->nombre.' '.$usuario->apellido), 0, 0, '', 0);
+$pdf->Cell(96, 10, utf8_decode("Usuario : " .$usuario), 0, 0, '', 0);
 $pdf->Ln(5);
 /*
 $hoy = date('d/m/Y');
