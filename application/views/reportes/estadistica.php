@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Estadistica</h1>
+            <h1>PRODUCTOS MAS VENDIDOS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-sack-dollar"></i>
               </span>
               <div class="info-box-content">                 
-                <span class="info-box-text">TOTAl PAGOS</span>
+                <span class="info-box-text">TOTAl INGRESO</span>
                 <?php $TotalPagos = 0;?> 
                 <?php if(!empty($reservas)):?>                        
                       <?php foreach($reservas as $reserva):?>
