@@ -8,6 +8,7 @@ class Ventas_model extends CI_Model {
         $this->db->from("ventas v");
         $this->db->join("cliente c", "c.id_cliente = v.id_cliente");    
         $this->db->where("v.eliminado","0");
+        $this->db->order_by("v.id_venta", "DESC");
         $resultados = $this->db->get();
         return $resultados->result(); 
     }
