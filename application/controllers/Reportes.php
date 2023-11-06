@@ -60,6 +60,24 @@ class Reportes extends CI_Controller {
 		}
 		
 	}
+	public function estadistica()
+	{	 
+            $data = array(
+				"reservas" => $this->Reporte_model->getAllEstadisticas(),							
+			);	
+
+			if($this->input->post("estadistica")){
+				$this->load->view('reportes/fpdf/estadistica',  $data);
+
+			}else{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/aside');
+				$this->load->view('reportes/estadistica', $data);
+				$this->load->view('layouts/footer');	
+			}
+
+					
+	}
 
 	public function comprobante($id)
 	{	
