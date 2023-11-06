@@ -185,8 +185,8 @@
     });
 
     //-- -------------------------- fro every change on comprobante--------------------------->
-    $("#comprobante").on("change", function(){
-      option = $(this).val() // if option is changed
+    $("#producto").on("change", function(){
+      option = $("#comprobante").val() // if option is changed
       if( option!=""){
         infoComprobante = option.split("*"); // make split
         $("#idcomprobante").val(infoComprobante[0]); //acording to array in split 

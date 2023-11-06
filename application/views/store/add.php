@@ -48,24 +48,18 @@
                                         
                                         <form action="<?php echo base_url();?>ventas/agregarventa" method="POST" class="form-horizontal" onsubmit=" return validarForm();">
                                             <div class="form-group row">                                                  
-                                                <div class="col-md-3">
-                                                    <label for="comprobante">Comprobante:</label>                                                    
-                                                    <select name="comprobante" id="comprobante" class="form-control" required>
-                                                        <option value="">Seleccione...</option> 
-                                                        <?php foreach($comprobantes as $comprobante): ?>
-                                                            <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->igv.'*'.$comprobante->serie;?>
-                                                            <option value="<?php echo $dataComprobante;?>"><?php echo $comprobante->nombre ;?></option>  
-                                                        <?php endforeach;?>
-                                                    </select>                                                  
+                                                           
+                                                    <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->igv.'*'.$comprobante->serie;?>
+                                                    <input type="hidden" id="comprobante" name="comprobante" value="<?php echo $dataComprobante;?>">                                              
                                                     <input type="hidden" id="idcomprobante" name="idcomprobante">
                                                     <input type="hidden" id="igv">
-                                                </div>                                                
+                                                                                                
                                                 <div class="col-md-3">
                                                     <label for="">Serie:</label>
                                                     <input type="text" class="form-control" name="serie" id="serie" readonly>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="">Numero:</label>
+                                                    <label for="">Comprobante:</label>
                                                     <input type="text" class="form-control" name="numero"  id="numero" readonly>
                                                 </div>
                                                 
@@ -75,7 +69,7 @@
                                                     <label for="">Cliente:</label>
                                                     <div class="input-group">
                                                         <input type="hidden" name="idcliente" id="idcliente">
-                                                        <input type="text" class="form-control" disabled="disabled" id="cliente">
+                                                        <input type="text" class="form-control" disabled="disabled" name="cliente" id="cliente">
                                                         <span class="input-group-btn">
                                                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default" ><span class="fa fa-search"></span> Buscar</button>
                                                         </span>

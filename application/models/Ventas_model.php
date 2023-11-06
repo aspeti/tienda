@@ -15,7 +15,7 @@ class Ventas_model extends CI_Model {
 
     public function getAllComprobantes(){          
         $resultados = $this->db->get("comprobante");
-        return $resultados->result();
+        return $resultados->row();
     }
 
     public function save($data)
