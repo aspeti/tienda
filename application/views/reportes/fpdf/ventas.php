@@ -28,7 +28,8 @@ class PDF extends FPDF
       /* TELEFONO */
       $this->Cell(45);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("Sucursal : Cochabamba"), 0, 0, '', 0);
+      $this->SetTextColor(0, 0, 0); //color
+      $this->Cell(85, 10, utf8_decode("Ciudad : Cochabamba"), 0, 0, '', 0);
       $this->Ln(30);
 
       /* TITULO DE LA TABLA */

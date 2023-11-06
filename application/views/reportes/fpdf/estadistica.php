@@ -15,7 +15,7 @@ class PDF extends FPDF
 
       $this->Cell(40);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("TIENDA DEPORTIVAS NACIONAES S.A"), 0, 0, '', 0);
+      $this->Cell(85, 10, utf8_decode("TIENDA DEPORTIVAS NACIONALES S.A"), 0, 0, '', 0);
       $this->Cell(10);
       $this->Cell(85, 10, utf8_decode("NIT: 1230809123"), 0, 0, '', 0); 
       $this->Ln(5);
@@ -44,7 +44,7 @@ class PDF extends FPDF
 
       $this->Cell(10);
       $this->Cell(10, 10, utf8_decode('N°'), 1, 0, 'C', 1);
-      $this->Cell(70, 10, utf8_decode('Paquete'), 1, 0, 'C', 1);
+      $this->Cell(70, 10, utf8_decode('Producto'), 1, 0, 'C', 1);
       $this->Cell(45, 10, utf8_decode('Cantidad'), 1, 0, 'C', 1);
       $this->Cell(40, 10, utf8_decode('Sub Total'), 1, 0, 'C', 1);
       
@@ -91,7 +91,7 @@ $pdf->SetY(20);
       $pdf->Cell(50, 10, utf8_decode("Direccion: Avenida San Martin Esquina Heroinas"), 0, 0, '', 0);
       $pdf->Ln(5);
       $pdf->Cell(10);
-      $pdf->Cell(50, 10, utf8_decode("Sucursal:Cochabamba/Bolivia"), 0, 0, '', 0);
+      $pdf->Cell(50, 10, utf8_decode("Cochabamba/Bolivia"), 0, 0, '', 0);
       $pdf->Ln(5);
       $pdf->Cell(10);
       $pdf->Cell(35, 10, utf8_decode("Fecha: ".$hoy), 0, 0, '', 0);

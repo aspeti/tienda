@@ -15,7 +15,7 @@ class PDF extends FPDF
 
       $this->Cell(40);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("TIENDA DEPORTIVAS NACIONAES S.A"), 0, 0, '', 0);
+      $this->Cell(85, 10, utf8_decode("TIENDA DEPORTIVAS NACIONALES S.A"), 0, 0, '', 0);
       $this->Cell(10);
       $this->Cell(85, 10, utf8_decode("NIT: 1230809123"), 0, 0, '', 0); 
       $this->Ln(5);
@@ -74,7 +74,7 @@ $pdf->SetY(20);
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(85, 10, utf8_decode("Sucursal:  Cochabamba"), 0, 0, '', 0);
+      $pdf->Cell(85, 10, utf8_decode("Ciudad:  Cochabamba"), 0, 0, '', 0);
       $pdf->Ln(10);
 
       $pdf->Cell(10);  // mover a la derecha

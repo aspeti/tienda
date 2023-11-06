@@ -94,8 +94,8 @@
                           <input type="hidden" class="form-control" name="inicio" id="inicio" value="<?php echo !empty($fecha_inicio)? $fecha_inicio:'';?>"/>
                           <input type="hidden" class="form-control" name="fin" id="fin" value="<?php echo !empty($fecha_fin)? $fecha_fin:'';?>"/>
                           <input type="submit" class="btn btn-primary" name="filtrar" id=filtrar value="Exportar">                         
-                        </div> 
                       </div> 
+                      
                   </form>                  
               </div>  
         
