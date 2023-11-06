@@ -53,6 +53,18 @@
                         </a>
                       </li>   
             <!--</ul>-->
+            <li class="nav-item">
+                      <a href="<?php echo base_url();?>reportes" class="nav-link">
+                      <i class="fas fa-file-text nav-icon"></i>
+                      <p>Reportes</p>
+                      </a>
+                  </li> 
+                  <li class="nav-item">
+                    <a href="<?php echo base_url();?>reportes/estadistica" class="nav-link">
+                      <i class="fas fa-file-text nav-icon"></i>
+                      <p>Mas vendidos</p>
+                    </a>
+                  </li> 
           </li>           
           <?php }?>                        
           <?php if($this->session->userdata('login')) { ?>   
@@ -67,19 +79,7 @@
                       <i class="fas fa-shopping-basket nav-icon"></i>
                       <p>Ventas</p>
                       </a>
-                  </li> 
-                  <li class="nav-item">
-                      <a href="<?php echo base_url();?>reportes" class="nav-link">
-                      <i class="fas fa-file-text nav-icon"></i>
-                      <p>Reportes</p>
-                      </a>
-                  </li> 
-                  <li class="nav-item">
-                    <a href="<?php echo base_url();?>reportes/estadistica" class="nav-link">
-                      <i class="fas fa-file-text nav-icon"></i>
-                      <p>Mas vendidos</p>
-                    </a>
-                  </li>  
+                  </li>               
           <?php }?>     
                     
         </ul>
