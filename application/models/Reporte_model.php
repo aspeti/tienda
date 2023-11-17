@@ -8,7 +8,7 @@ class Reporte_model extends CI_Model {
         $this->db->from("ventas v");
         $this->db->join("cliente c", "c.id_cliente = v.id_cliente");    
         $this->db->where("v.eliminado","0");
-        $this->db->order_by("v.id_venta", "ASC");
+        $this->db->order_by("v.id_venta", "DESC");
         $resultados = $this->db->get();
         return $resultados->result(); 
     }
@@ -21,7 +21,7 @@ class Reporte_model extends CI_Model {
         $this->db->where("v.eliminado","0");
         $this->db->where('v.fecha_creacion >=', $fecha_inicio);
         $this->db->where('v.fecha_creacion <=', $fecha_fin); 
-        $this->db->order_by("v.id_venta", "ASC");
+        $this->db->order_by("v.id_venta", "DESC");
         //$this->db->group_by("v.id_venta");      
 
         $resultados = $this->db->get();
@@ -38,8 +38,7 @@ class Reporte_model extends CI_Model {
         $this->db->from("ventas v");
         $this->db->join("cliente c", "c.id_cliente = v.id_cliente");    
         $this->db->where("v.eliminado","0");
-        $this->db->where("v.id_venta", $id);
-        $this->db->order_by("v.id_venta", "ASC");
+        $this->db->where("v.id_venta", $id);       
         $resultados = $this->db->get();
         return $resultados->row(); 
     }
@@ -61,6 +60,7 @@ class Reporte_model extends CI_Model {
         $this->db->join("producto p", "d.id_producto = p.id_producto");
         $this->db->where("d.eliminado", "0");
         $this->db->group_by("d.id_producto");
+        $this->db->order_by("cantidad", "DESC");
         $resultados = $this->db->get();
         return $resultados->result();
     }

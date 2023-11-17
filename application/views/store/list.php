@@ -39,10 +39,10 @@
                   <tr>
                     <th>#</th>
                     <th>Fecha de venta</th>
-                    <th>Cliente</th>
-                    <th>numero documento</th>                   
+                    <th>Nombre Cliente</th>
+                    <th>numero de recibo</th>                   
                     <th>Total</th>    
-                    <th>Acciones</th>                 
+                    <th>Recibo de Venta</th>                 
                   </tr>
                   </thead>
                   <tbody>
@@ -57,11 +57,8 @@
                                   <td><?php echo $venta->total;?></td>                                 
                                   
                                   <td>
-                                      <div class="btn-group">
-                                        <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$venta->id_venta;?>">
-                                          <span class="fa fa-search"></span>
-                                        </button>
-                                        <a class="btn btn-warning" href="<?php echo base_url();?>reportes/comprobante/<?php echo $venta->id_venta;?>" class="btn btn-info" target="_blank"><span class="fas fa-file-text" ></span></a>   
+                                      <div class="btn-group">                                       
+                                        <a class="btn btn-success" href="<?php echo base_url();?>reportes/comprobante/<?php echo $venta->id_venta;?>" target="_blank"><span class="fas fa-file-text" ></span></a>   
                                       </div>
                                   </td>  
                                 </tr>  
@@ -76,7 +73,7 @@
                     <th>Categoria</th>
                     <th>cliente</th>
                     <th>Precio</th>
-                    <th>Acciones</th>  
+                    <th>Recibo de Venta</th>
                   </tr>
 
                 </table>
