@@ -312,4 +312,6 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+/** Set time zone in proyect */
+ date_default_timezone_set("America/Caracas");
 require_once BASEPATH.'core/CodeIgniter.php';
