@@ -20,53 +20,82 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-          <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1">
-                <i class="fa-solid fa-sack-dollar"></i>
-              </span>
-              <div class="info-box-content">
-
-                 
-                <span class="info-box-text">TOTAl PAGOS</span>
-                <?php $TotalPagos = 0;?> 
+      <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php $TotalPagos = 0;?> 
                 <?php if(!empty($ventas)):?>                        
                       <?php foreach($ventas as $venta):?>
                         <?php $TotalPagos = $TotalPagos + $venta->total;?> 
                       <?php endforeach;?>
                  <?php endif; ?>  
-                <span class="info-box-number"><?php echo $TotalPagos; ?> <small>Bs</small></span>
+                <h3><?php echo "Bs ".number_format($TotalPagos,2) ;?></h3>
+
+                <p>Total Ingreso</p>
               </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-primary elevation-1">
+              <div class="icon">
                 <i class="fas fa-shopping-cart"></i>
-              </span>
-              <div class="info-box-content">
-                <span class="info-box-text">CANTIDAD VENTAS HOY</span>
-                <span class="info-box-number">760</span>
               </div>
-              <!-- /.info-box-content -->
+              <a href="#" class="small-box-footer">
+                De la venta <i class="fas fa-arrow-circle-down"></i>
+              </a>
             </div>
-            <!-- /.info-box -->
           </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">Mayores ventas</span>
-                <span class="info-box-number">% <small>ventas</small></span>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Incremento de ventas</p>
               </div>
-              <!-- /.info-box-content -->
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
-            <!-- /.info-box -->
           </div>
-        </div>  
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>Nuevos clientes</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>15</h3>
+
+                <p>Nuevos productos</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>     
 
         <div class="row">
           <div class="col-12">
@@ -108,8 +137,7 @@
                     <th>Cliente</th>
                     <th>num de recibo</th>
                     <th>Fecha de Venta</th>
-                    <th>Total</th>
-                    <th>Acciones</th>
+                    <th>Total</th>                  
                   </tr>
                   </thead>
                   <tbody>
@@ -121,14 +149,7 @@
                     <td><?php echo $venta->cliente;?></td>
                     <td><?php echo $venta->num_documento;?></td>                   
                     <td><?php echo date('d-m-Y', strtotime($venta->fecha_creacion)); ?></td>                     
-                    <td><?php echo $venta->total;?></td>                                
-                    <td>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-info btn-view-venta" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='view/reporte'.$venta->id_venta;?>">
-                            <span class="fa fa-search"></span>
-                          </button>                        
-                        </div>
-                    </td>  
+                    <td><?php echo $venta->total;?></td> 
                   </tr>
                       <?php $cont++;?>                 
                   <?php endforeach;?>
@@ -141,7 +162,7 @@
                     <th>num de recibo</th>
                     <th>Fecha de Venta</th>
                     <th>Total</th>
-                    <th>Acciones</th>
+                   
                   </tr>
                   </tfoot>
                 </table>

@@ -87,7 +87,7 @@ $pdf->SetY(20);
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
       $pdf->Cell(85, 10, utf8_decode("NIT, CI.: ".$venta->ci), 0, 0, '', 0);
-      $pdf->Cell(0, 10, utf8_decode("Empleado: ".$empleado), 0, 0, '', 0); 
+      $pdf->Cell(0, 10, utf8_decode("Usuario: ".$empleado), 0, 0, '', 0); 
       $pdf->Ln(20);
       
       
