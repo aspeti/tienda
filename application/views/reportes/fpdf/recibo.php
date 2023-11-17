@@ -82,11 +82,12 @@ $pdf->SetY(20);
       $pdf->Cell(85, 10, utf8_decode("Sr.(a): ".$venta->cliente), 0, 0, '', 0);
       $pdf->Cell(15, 10, utf8_decode("Fecha: ".$venta->fecha_creacion), 0, 0, '', 0);
       $pdf->Ln(5);
-
+   
       
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(15, 10, utf8_decode("NIT, CI.: ".$venta->ci), 0, 0, '', 0);
+      $pdf->Cell(85, 10, utf8_decode("NIT, CI.: ".$venta->ci), 0, 0, '', 0);
+      $pdf->Cell(0, 10, utf8_decode("Empleado: ".$empleado), 0, 0, '', 0); 
       $pdf->Ln(20);
       
       
@@ -117,12 +118,14 @@ $pdf->SetY(20);
       $pdf->Cell(25, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(80, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(32, 10, utf8_decode("Valor Total Bs: "), 1, 0, 'C', 0);
-      $pdf->Cell(32, 10, utf8_decode($total.".00"), 1, 1, 'C', 0); 
+      $pdf->Cell(32, 10, utf8_decode(number_format($total,2)), 1, 1, 'C', 0); 
       $pdf->Ln(5);  
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(15, 10, utf8_decode("Recibo Original: MULTITUD DEPORTIVA" ), 0, 0, '', 0);
+       
+      $pdf->Cell(85, 10, utf8_decode("Recibo Original: MULTITUD DEPORTIVA" ), 0, 0, '', 0);
+      
       $pdf->Ln(5);
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);

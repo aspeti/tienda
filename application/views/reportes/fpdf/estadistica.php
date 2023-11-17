@@ -85,7 +85,7 @@ $pdf->SetY(20);
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
       $pdf->Cell(85, 10, utf8_decode("Sr.(a): "), 0, 0, '', 0);*/
-      $hoy = date('d/m/Y');
+      $hoy = date('d-m-Y');
       $pdf->setY(25);
       $pdf->Cell(10);
       $pdf->Cell(50, 10, utf8_decode("Direccion: Avenida San Martin Esquina Heroinas"), 0, 0, '', 0);
@@ -130,7 +130,7 @@ $pdf->SetY(20);
       $pdf->Cell(10, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(70, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(45, 10, utf8_decode("Total Bs: "), 1, 0, 'C', 0);
-      $pdf->Cell(40, 10, utf8_decode($reserva->total), 1, 1, 'C', 0); 
+      $pdf->Cell(40, 10, utf8_decode(number_format($total,2)), 1, 1, 'C', 0); 
       $pdf->Ln(5);  
 
       $pdf->Cell(10);  // mover a la derecha

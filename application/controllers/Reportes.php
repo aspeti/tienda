@@ -83,6 +83,7 @@ class Reportes extends CI_Controller {
 	{	
 				
 		$data = array(
+			"empleado"=>$this->session->userdata("nombre"),
 			"venta" => $this->Reporte_model->getVentaByID($id),	
 			"ventas" => $this->Reporte_model->getAllDetalleById($id),
 		);	
