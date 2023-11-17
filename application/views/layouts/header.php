@@ -29,14 +29,14 @@
 <body class="hold-transition  sidebar-mini sidebar-mini-md layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
-  <!-- Preloader   
+  <!-- Preloader   -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="<//?php echo base_url();?>assets/img/logo.png" height="60" width="60">
-  </div> -->
+    <img class="animation__wobble" src="<?php echo base_url();?>assets/img/logo.png" height="60" width="60">
+  </div> 
 
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -72,16 +72,16 @@
       </li>
 
 
-      <!--li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </!li>
-      <li-- class="nav-item">
+      </li>
+      <!--li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li-->
+      </!li-->
     </ul>
   </nav>
   <!-- /.navbar -->
