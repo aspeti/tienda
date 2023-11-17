@@ -119,8 +119,8 @@
                   <tr>
                     <td><?php echo $cont;?></td>
                     <td><?php echo $venta->cliente;?></td>
-                    <td><?php echo $venta->num_documento;?></td>
-                    <td><?php echo $venta->fecha_creacion;?></td>
+                    <td><?php echo $venta->num_documento;?></td>                   
+                    <td><?php echo date('d-m-Y', strtotime($venta->fecha_creacion)); ?></td>                     
                     <td><?php echo $venta->total;?></td>                                
                     <td>
                         <div class="btn-group">
