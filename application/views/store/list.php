@@ -26,8 +26,8 @@
             <div class="card">
               <div class="card-header">                
                 <div class ="col-md-2" >
-                  <a href="<?php echo base_url();?>ventas/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
-                    <span class="fa fa-plus"></span>  Agregar Venta
+                  <a href="<?php echo base_url();?>ventas/add" type="button" class="btn btn-block btn-success"> <!-- quietar el btn-block---->
+                    <span class="mr-2"> <i class="fa-solid fa-sack-dollar"></i></span>  Realizar Venta
                   </a>
                 </div>
               </div>

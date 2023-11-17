@@ -27,9 +27,9 @@
               <!-- /.card-header -->
               <div class="card-body">    
                 
-              <div class="card card-primary">
+              <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Venta</h3>
+                <h3 class="card-title"></h3>
               </div>              
               <!-- /.card-header -->
 
@@ -55,11 +55,11 @@
                                                     <input type="hidden" id="igv">
                                                                                                 
                                                 <div class="col-md-3">
-                                                    <label for="">Serie:</label>
+                                                    <label for="">Numero de Serie:</label>
                                                     <input type="text" class="form-control" name="serie" id="serie" readonly>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="">Comprobante:</label>
+                                                    <label for="">Num. Boleta:</label>
                                                     <input type="text" class="form-control" name="numero"  id="numero" readonly>
                                                 </div>
                                                 
@@ -118,7 +118,7 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                     <label for="">&nbsp;</label>
-                                                    <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
+                                                    <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar a lista</button>
                                                 </div>
                                                 </div>
                                             </div>
@@ -126,14 +126,13 @@
                                             <table id="tbventas" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Codigo</th>
-                                                        <th>Nombre</th>
-
-                                                        <th>Precio Bs.</th>
-                                                        <th>Stock Max.</th>
+                                                        <th>Producto</th>
+                                                        <th>Codigo</th>                                                        
+                                                        <th>Precio Unitario</th>
+                                                        <th>Disponibilidad</th>
                                                         <th>Cantidad</th>
-                                                        <th>Importe Bs.</th>
-                                                        <th>Acciones</th>
+                                                        <th>precio parcial Bs.</th>
+                                                        <th>Eliminar</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="tbody_detalle">
