@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>PRODUCTOS MAS VENDIDOS</h1>
+            <h1>General</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,12 +25,12 @@
             <!-- small card -->
             <div class="small-box bg-success">
               <div class="inner">
-                <?php $TotalPagos = 0;?> 
-                <?php if(!empty($reservas)):?>                        
-                      <?php foreach($reservas as $reserva):?>
-                        <?php $TotalPagos = $TotalPagos + $reserva->total;?> 
+              <?php $TotalPagos = 0;?> 
+                <?php if(!empty($ventas)):?>                        
+                      <?php foreach($ventas as $venta):?>
+                        <?php $TotalPagos = $TotalPagos + $venta->total;?> 
                       <?php endforeach;?>
-                 <?php endif; ?>
+                 <?php endif; ?>  
                 <h3><?php echo "Bs ".number_format($TotalPagos,2) ;?></h3>
 
                 <p>Total Ingreso</p>
@@ -95,41 +95,50 @@
             </div>
           </div>
           <!-- ./col -->
-        </div>  
-     
+        </div>     
 
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                  <form action="<?php echo base_url() ?>reportes/estadistica" method="POST"  target="_blank" >
-                      <div class=" form-group  row">                       
-                          <input type="submit" class="btn btn-primary" name="estadistica" id="estadistica" value="Exportar">  
-                      </div> 
-                  </form>  
+                <!--h3 class="card-title">lISTA DE VENTAS</!h3-->                             
+                        
               </div>  
         
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="listarpt" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>#</th>               
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Total Bs </th>                                
+                    <th>#</th>
+                    <th>Empleado</th>
+                    <th>Cliente</th>
+                    <th>producto</th>
+                    <th>categoria</th>
+                    <th>cantidad</th>
+                    <th>precio unitario</th>
+                    <th>subtotal</th>
+                    <th>num de recibo</th>
+                    <th>Fecha de Venta</th>
+                    <th>Total</th>                  
                   </tr>
                   </thead>
                   <tbody>
-                  <?php if(!empty($reservas)):?>
+                  <?php if(!empty($ventas)):?>
                       <?php $cont = 1;?>      
-                      <?php foreach($reservas as $reserva):?>
+                      <?php foreach($ventas as $venta):?>
                   <tr>
-                    <td><?php echo $cont;?></td>                 
-                    <td><?php echo $reserva->paquete;?></td>  
-                    <td><?php echo $reserva->cantidad;?></td>                   
-                    <td><?php echo $reserva->total;?></td>                                
- 
+                    <td><?php echo $cont;?></td>
+                    <td><?php echo $venta->usuario;?></td>
+                    <td><?php echo $venta->cliente;?></td>   
+                    <td><?php echo $venta->prod;?></td>  
+                    <td><?php echo $venta->categoria;?></td> 
+                    <td><?php echo $venta->cantidad;?></td>  
+                    <td><?php echo $venta->precio;?></td>  
+                    <td><?php echo $venta->importe;?></td>                   
+                    <td><?php echo $venta->num_documento;?></td>                   
+                    <td><?php echo date('d-m-Y', strtotime($venta->fecha_creacion)); ?></td>                     
+                    <td><?php echo $venta->total;?></td> 
                   </tr>
                       <?php $cont++;?>                 
                   <?php endforeach;?>
@@ -137,10 +146,18 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>#</th>               
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Total Bs </th>                                
+                    <th>#</th>
+                    <th>empleado</th>
+                    <th>Cliente</th>
+                    <th>producto</th>
+                    <th>categoria</th>
+                    <th>cantidad</th>
+                    <th>precio unitario</th>
+                    <th>subtotal</th>
+                    <th>num de recibo</th>
+                    <th>Fecha de Venta</th>
+                    <th>Total</th>
+                   
                   </tr>
                   </tfoot>
                 </table>

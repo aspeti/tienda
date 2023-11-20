@@ -66,4 +66,20 @@ class Reporte_model extends CI_Model {
     }
 
 
+    public function general(){          
+        $this->db->select("v.*, c.nombre as cliente, u.nombre as usuario, p.nombre as prod,p.precio as precio, d.cantidad as cantidad, 
+        d.importe as importe, g.nombre as categoria");
+        $this->db->from("ventas v");
+        $this->db->join("cliente c", "c.id_cliente = v.id_cliente"); 
+        $this->db->join("usuario u", "u.id_usuario = v.id_usuario");    
+        $this->db->join("detalle d", "d.id_venta = v.id_venta");   
+        $this->db->join("producto p", "d.id_producto = p.id_producto");  
+        $this->db->join("categoria g", "g.id_categoria = p.id_categoria");  
+        $this->db->where("v.eliminado","0");
+        $this->db->order_by("v.id_venta", "DESC");
+        $resultados = $this->db->get();
+        return $resultados->result(); 
+    }
+
+
 }

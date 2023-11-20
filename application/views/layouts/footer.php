@@ -93,7 +93,7 @@
     });   
 
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": true,"searching": false,
+      "responsive": true, "lengthChange": false, "autoWidth": true,"searching": true,
       "language": {
             "lengthMenu": "mostrar _MENU_ registros por pagina",
             "zeroRecords": "No se encontró nada - lo siento",
@@ -105,9 +105,9 @@
               "next": "Siguiente",
               "previous": "Anterior"
             }
-        },
-     // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    //  "buttons": ["excel", "pdf"]
+        },  
+    //  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["excel"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#lista').DataTable({
       "paging": true, 
@@ -130,6 +130,28 @@
             }
         }
     });
+    $('#listarpt').DataTable({
+      "paging": true, 
+      "lengthChange": false,  
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      "responsive": true,
+      "language": {
+            "lengthMenu": "mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontró nada - lo siento",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search": "Buscar",
+            "paginate" :{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+        }
+    });
+
     ///---------properties for datatable lista in modal--------
     $('#listamodal').DataTable({
       "paging": false, 

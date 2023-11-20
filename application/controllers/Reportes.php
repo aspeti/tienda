@@ -92,4 +92,21 @@ class Reportes extends CI_Controller {
 
 	}
 
+	public function general()
+	{
+
+        $ventas = $this->Reporte_model->general();	
+    
+        $data = array(
+            "ventas" => $ventas,			
+        );		
+		
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('reportes/general', $data);
+		$this->load->view('layouts/footer');			
+		
+	}
+
+
 }

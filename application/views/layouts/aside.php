@@ -55,17 +55,33 @@
                       </li>   
             <!--</ul>-->
             <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  REPORTES
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
                       <a href="<?php echo base_url();?>reportes" class="nav-link">
                       <i class="fas fa-file-text nav-icon"></i>
-                      <p>Reportes</p>
+                      <p>Reporte Ventas</p>
                       </a>
-                  </li> 
+                </li> 
                   <li class="nav-item">
                     <a href="<?php echo base_url();?>reportes/estadistica" class="nav-link">
                       <i class="fas fa-file-text nav-icon"></i>
                       <p>Mas vendidos</p>
                     </a>
                   </li> 
+                  <li class="nav-item">
+                    <a href="<?php echo base_url();?>reportes/general" class="nav-link">
+                      <i class="fas fa-file-text nav-icon"></i>
+                      <p>General</p>
+                    </a>
+                  </li> 
+                  </ul>   
           </li>           
           <?php }?>                        
           <?php if($this->session->userdata('login')) { ?>   
