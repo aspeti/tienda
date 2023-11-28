@@ -15,6 +15,15 @@ class Reporte_model extends CI_Model {
 
 
     public function getAllVentasByDate($fecha_inicio,$fecha_fin){
+
+        $fecha_inicio = date('Y-m-d 00:00:00', strtotime($fecha_inicio));
+        $fecha_fin = date('Y-m-d 00:00:00', strtotime($fecha_fin));
+    
+        // Agregar un día a la fecha_fin para incluir ventas del día especificado
+        $fecha_fin = date('Y-m-d H:i:s', strtotime($fecha_fin . ' +1 day'));
+
+
+
         $this->db->select("v.*, c.nombre as cliente");
         $this->db->from("ventas v");
         $this->db->join("cliente c", "c.id_cliente = v.id_cliente");    
