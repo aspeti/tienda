@@ -63,8 +63,8 @@ class Reporte_model extends CI_Model {
 
     }
 
-    public function getAllEstadisticas(){          
-        $this->db->select("p.nombre as paquete, COUNT(d.cantidad) as cantidad, SUM(d.precio) as total");
+    public function getAllEstadisticas(){    
+        $this->db->select("p.nombre as paquete, SUM(d.cantidad) as cantidad, SUM(d.importe) as total");
         $this->db->from("detalle d");
         $this->db->join("producto p", "d.id_producto = p.id_producto");
         $this->db->where("d.eliminado", "0");
