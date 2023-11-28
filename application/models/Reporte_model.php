@@ -76,7 +76,7 @@ class Reporte_model extends CI_Model {
 
 
     public function general(){          
-        $this->db->select("v.*, c.nombre as cliente, u.nombre as usuario, p.nombre as prod,p.precio as precio, d.cantidad as cantidad, 
+        $this->db->select("v.*, c.nombre as cliente, concat(u.nombre,' ',u.apellido) as usuario, p.nombre as prod,p.precio as precio, d.cantidad as cantidad, 
         d.importe as importe, g.nombre as categoria");
         $this->db->from("ventas v");
         $this->db->join("cliente c", "c.id_cliente = v.id_cliente"); 
